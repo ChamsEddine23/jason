@@ -1,5 +1,5 @@
 
-
+/*importation de police*/
 
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -7,15 +7,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Della+Respira&family=Spirax&display=swap');
 
+/*initialisation de body*/
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+}
+
+h1, h2 {
+  text-align: center;
 }
 
 main {
   max-width: 960px;
   margin: 0 auto;
 }
+
+/*header*/
 
 header {
   background: #f4f4f4;
@@ -32,6 +40,9 @@ header h1 {
 	text-transform: uppercase;
   font-size: 2.8em;
 }
+
+/*boutoun d'ajout */
+
 aside
 {
 	position: fixed;
@@ -46,15 +57,36 @@ aside:hover
 	left: 0px;
 }
 
-form
-{
-	margin: 4vh;
-}
+
+/*pagination*/
+
 #pagination{
 	text-transform: capitalize;
 	color: #f76c6c;
 	font-family: 'Della Respira', serif;
 }
+
+/*formulaire*/
+
+form
+{
+	margin: 4vh;
+}
+label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.new-member-form {
+  margin: 2em 0 4em 0;
+  text-align: center;
+}
+
+.member-item {
+  padding: 0.25em 0;
+}
+
+/*les personnage*/
 
 #memberEquipage
 {
@@ -85,27 +117,8 @@ form
 
 }
 
-footer {
-  background: 
-}
+/*footer*/
 
-h1, h2 {
-  text-align: center;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5em;
-}
-
-.new-member-form {
-  margin: 2em 0 4em 0;
-  text-align: center;
-}
-
-.member-item {
-  padding: 0.25em 0;
-}
 
 footer {
   margin-top: 2em;
