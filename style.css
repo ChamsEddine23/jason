@@ -1,0 +1,116 @@
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Della+Respira&family=Spirax&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+header {
+  background: #f4f4f4;
+  text-align: center;
+  padding: 2em;
+}
+
+header img {
+  max-width: 96px;
+}
+
+header h1 {
+	font-family: 'Spirax', cursive;
+	text-transform: uppercase;
+  font-size: 2.8em;
+}
+aside
+{
+	position: fixed;
+	left: -12em;
+	top: 50vh;
+	transition-duration: 2s;
+
+}
+aside:hover
+{
+	position: fixed;
+	left: 0px;
+}
+
+form
+{
+	margin: 4vh;
+}
+#pagination{
+	text-transform: capitalize;
+	color: #f76c6c;
+	font-family: 'Della Respira', serif;
+}
+
+#memberEquipage
+{
+	font-family: 'Poppins', sans-serif;
+}
+
+
+#premiereLettre, .nomPersonnage::first-letter
+{
+	color: #f76c6c;
+	text-transform: capitalize;
+	font-family: 'Della Respira', serif;
+}
+.nomPersonnage{
+	font-family: 'Della Respira', serif;
+	font-size: 20px;
+}
+
+.premiereLettre
+{
+	padding: 0px 12px;
+	margin: 12px 12px;
+	font-size: 50px;
+	color: white;
+	background-color: #f76c6c;
+	text-transform: capitalize;	
+	font-family: 'Della Respira', serif;
+
+}
+
+footer {
+  background: 
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.new-member-form {
+  margin: 2em 0 4em 0;
+  text-align: center;
+}
+
+.member-item {
+  padding: 0.25em 0;
+}
+
+footer {
+  margin-top: 2em;
+  text-align: center;
+  color: #fff;
+  background: #f76c6c;
+  padding: 0.25em 0;
+}
