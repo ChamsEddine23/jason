@@ -1,22 +1,11 @@
 <?php
-  // connection a la base de données jasonDB
+  // connection with database 
 
-  try
-{
-   $bdd = new PDO('mysql:host=localhost;dbname=jasonDB;charset=utf8','root','root');
-}
-catch (Exception $e)
-{
-        die('Erreur : ' . $e->getMessage());
-}
+include "connectDB.php";
 
-// inserer des Personnage
-  if(isset($_POST['nomPersonnage'])){
-      $nomPersonnage = htmlspecialchars($_POST['nomPersonnage']);
+// insert member
+ include "insertMember.php";
 
-      $insertPersonnage = $bdd->prepare("INSERT INTO personnage (nomPersonnage) VALUES (?)");
-      $insertPersonnage->execute(array($nomPersonnage));
-    }
     $tabLettre = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
 
 ?>
@@ -33,6 +22,8 @@ catch (Exception $e)
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="style.css" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 	<title>Sauver Jason</title>
 </head>
 <body>
@@ -45,11 +36,26 @@ catch (Exception $e)
   </h1>
 </header>
 
+
+ <!-- navigation -->
+<div class="container-fluid">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <?php foreach ($tabLettre as $key => $value) { ?>
+      <li class="page-item"><a class="page-link" href="#<?php echo($value); ?>" id="pagination"><?php echo $value; ?></a></li>
+     <?php } ?>
+      
+    </ul>
+  </nav>  
+</div>
+
  <!-- Button trigger modal -->
-<aside id="buttonAjout">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
-    Ajouter un(e) Argonaute &nbsp;&nbsp;&nbsp;+
-  </button>
+<aside class="container-fluid row " id="buttonAjout">
+	<div class="d-flex justify-content-center">
+	  <button type="button" class="btn bg-success text-white" data-toggle="modal" data-target="#exampleModal" >
+	    +&nbsp;&nbsp;&nbsp;Ajouter un(e) Argonaute &nbsp;&nbsp;&nbsp;+
+	  </button>
+  	</div>
 </aside>
 
 <!-- Main section -->
@@ -74,23 +80,24 @@ catch (Exception $e)
             </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Envoyer</button>
+          <button type="submit" class="btn bg-success">Envoyer</button>
         </div>
           </form>
       </div>
     </div>
   </div>
- <!-- navigation -->
-<div class="container-fluid">
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <?php foreach ($tabLettre as $key => $value) { ?>
-      <li class="page-item"><a class="page-link" href="#<?php echo($value); ?>" id="pagination"><?php echo $value; ?></a></li>
-     <?php } ?>
-      
-    </ul>
-  </nav>  
-</div>
+
+
+
+	
+		<?php 
+			if(isset($message)){
+		
+				echo $message;
+		 	
+			} 
+		?>
+	</div>
   
 
     
@@ -101,6 +108,8 @@ catch (Exception $e)
   <div class="row">
     
       <?php
+
+      // display first letter with a loop
         foreach ($tabLettre as $key => $value) {
           $req = $bdd->query("SELECT * FROM personnage WHERE nomPersonnage  LIKE  '".$value."%'");
           $afficherPersonnage = $req->fetch();
@@ -116,11 +125,12 @@ catch (Exception $e)
        
         $req = $bdd->query("SELECT * FROM personnage WHERE nomPersonnage  LIKE  '".$value."%'");
 
+        	// display member team with a loop
           while($afficherPersonnage = $req->fetch()){
       ?>
       <div class="col-4">
 
-        <h6 class="display-6 nomPersonnage"><?php if(!empty($afficherPersonnage['nomPersonnage'])){echo $afficherPersonnage['nomPersonnage'];} ?></h6>
+        <h6 class="display-6 nomPersonnage"><?php if(!empty($afficherPersonnage['nomPersonnage'])){echo htmlspecialchars($afficherPersonnage['nomPersonnage']);} ?></h6>
       </div>
   
 
