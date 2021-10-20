@@ -80,7 +80,7 @@ include "connectDB.php";
             </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn bg-success">Envoyer</button>
+          <button type="submit" class="btn bg-success text-white">Envoyer</button>
         </div>
           </form>
       </div>
