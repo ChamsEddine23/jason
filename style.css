@@ -59,7 +59,9 @@ aside:hover
 
 
 /*pagination*/
-
+aside{
+	margin-bottom: 8px;
+}
 #pagination{
 	text-transform: capitalize;
 	color: #f76c6c;
